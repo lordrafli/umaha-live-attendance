@@ -12,17 +12,21 @@
         android:theme="@style/Theme.UmahaAttendaceApp"
         tools:targetApi="31">
         <activity
-            android:name=".ForgotPasswordActivity"
+            android:name=".views.forgotpass.ForgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".views.login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".views.splash.SplashActivity"
             android:exported="false" />
         <activity
             android:name=".views.main.MainActivity"
             android:exported="true">
+            <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="@string/google_maps_key" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
