@@ -31,12 +31,12 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
         mapAttendance?.getMapAsync(this)
     }
 
-    override fun onMapReady(googleMap: GoogleMap?) {
-        map = googleMap
+
+    override fun onMapReady(p0: GoogleMap) {
+        map = p0
         val umaha = LatLng(-7.349545304399485, 112.68895525231115)
         map?.moveCamera(CameraUpdateFactory.newLatLng(umaha))
         map?.animateCamera(CameraUpdateFactory.zoomTo(20f))
-
     }
 
 }
