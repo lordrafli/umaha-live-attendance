@@ -3,13 +3,17 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
+        jcenter()
     }
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        // Untuk library markdown maven { url 'https://jitpack.io' }
+        // Untuk library youtube dan anko maven { url 'https://jcenter.bintray.com' }
         google()
         mavenCentral()
+        jcenter()
     }
 }
 rootProject.name = "UmahaAttendaceApp"
