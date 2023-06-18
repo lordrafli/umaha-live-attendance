@@ -11,9 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".views.attendance.AttendanceFragment"/>
-   
 
 
+    <include
+        android:layout_width="224dp"
+        android:layout_height="wrap_content"
+        layout="@layout/layout_current_time_dialog"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"/>
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
