@@ -15,4 +15,5 @@
     <string name="your_photo">Your Photo</string>
     <string name="check_in">Check In</string>
     <string name="google_maps_key" translatable="false">AIzaSyDZmPs4oNdbN7cZrmErZQ01tR6WoTBr1DQ</string>
+    <string name="check_out">Check Out</string>
 </resources>
