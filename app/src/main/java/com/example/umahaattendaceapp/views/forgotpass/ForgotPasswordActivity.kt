@@ -17,8 +17,15 @@ class ForgotPasswordActivity : AppCompatActivity() {
         init(){
 
         }
+        OnClick()
 
 
+    }
+
+    private fun OnClick() {
+        binding.tbForgotPassword.setOnClickListener {
+            finish()
+        }
     }
 
     private fun init(function: () -> Unit) {
