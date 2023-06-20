@@ -22,4 +22,8 @@
     <string name="old_password">Old Password</string>
     <string name="new_password">New Password</string>
     <string name="confirm_new_password">Confirm Password</string>
+    <string name="please_field_your_email">Please Field Your Email</string>
+    <string name="please_use_valid_email">Please Use valid Email</string>
+    <string name="please_field_your_password">Please Field Your Password</string>
+    <string name="failed">Failed</string>
 </resources>
