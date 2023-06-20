@@ -26,4 +26,5 @@
     <string name="please_use_valid_email">Please Use valid Email</string>
     <string name="please_field_your_password">Please Field Your Password</string>
     <string name="failed">Failed</string>
+    <string name="success">Success</string>
 </resources>
