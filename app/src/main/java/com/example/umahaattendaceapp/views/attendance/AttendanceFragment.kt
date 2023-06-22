@@ -2,14 +2,16 @@ package com.example.umahaattendaceapp.views.attendance
 
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
-import com.example.umahaattendaceapp.Manifest
 import com.example.umahaattendaceapp.R
 import com.example.umahaattendaceapp.databinding.FragmentAttendanceBinding
+import com.example.umahaattendaceapp.dialog.MyDialog
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -25,11 +27,6 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
             android.Manifest.permission.ACCESS_FINE_LOCATION,
             android.Manifest.permission.ACCESS_COARSE_LOCATION
         )
-
-
-
-
-
 
     private var mapAttendance: SupportMapFragment? = null
     private var map: GoogleMap? = null
@@ -50,22 +47,51 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
         super.onViewCreated(view, savedInstanceState)
         setupMaps()
     }
+   /** override fun ActivityResultContracts.RequestMultiplePermissions(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            REQUEST_CODE_MAP_PERMISSION -> {
+                var isHasPermission = false
+                val permissionNotGranted = StringBuilder()
+
+                for (i in permissions.indices) {
+                    isHasPermission = grantResults[i] == PackageManager.PERMISSION_GRANTED
+
+                    if (!isHasPermission) {
+                        permissionNotGranted.append("${permissions[i]}\n")
+                    }
+                }
+
+                if (isHasPermission) {
+                    setupMaps()
+                } else {
+                    val message =
+                        permissionNotGranted.toString() + "\n" + getString(R.string.not_granted)
+                    MyDialog.dynamicDialog(
+                        context,
+                        getString(R.string.required_permission),
+                        message
+                    )
+                }
+            }
+        }
+    }*/
+
+
+
 
     private fun setupMaps() {
+
         mapAttendance = childFragmentManager.findFragmentById(R.id.map_attendance) as SupportMapFragment
         mapAttendance?.getMapAsync(this)
     }
 
 
-    private fun checkPermission(): Boolean {
-        var isHasPermission = false
-        context?.let {
-            for (permission in mapPermissions){
-                isHasPermission = ActivityCompat.checkSelfPermission(it, permission) == PackageManager.PERMISSION_GRANTED
-            }
-        }
-        return isHasPermission
-    }
+
 
     override fun onMapReady(p0: GoogleMap) {
         map = p0
@@ -80,10 +106,21 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
     }
 
     private fun setRequestPermission() {
-        TODO("Not yet implemented")
+        requestPermissions(mapPermissions, REQUEST_CODE_MAP_PERMISSION)
     }
 
+
     private fun goToCurrentLocation() {
-        TODO("Not yet implemented")
+
     }
+    private fun checkPermission(): Boolean {
+        var isHasPermission = false
+        context?.let {
+            for (permission in mapPermissions){
+                isHasPermission = ActivityCompat.checkSelfPermission(it, permission) == PackageManager.PERMISSION_GRANTED
+            }
+        }
+        return isHasPermission
+    }
+
 }
