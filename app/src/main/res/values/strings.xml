@@ -29,4 +29,6 @@
     <string name="success">Success</string>
     <string name="required_permission">Required Permission</string>
     <string name="not_granted">Not Granted</string>
+    <string name="search_your_location">Search your location</string>
+    <string name="failed_to_capture_image">Failed to Capture Image</string>
 </resources>
