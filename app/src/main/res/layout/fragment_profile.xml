@@ -76,6 +76,18 @@
                     android:layout_height="wrap_content"
                     android:text="@string/default_text"
                     android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/tv_fak_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/default_text"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/tv_prodi_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/default_text"
+                    android:textSize="16sp"/>
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btn_change_password"

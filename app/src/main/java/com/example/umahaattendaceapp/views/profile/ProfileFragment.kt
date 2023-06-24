@@ -59,6 +59,9 @@ class ProfileFragment : Fragment() {
         Glide.with(requireContext()).load(imageUrl).placeholder(android.R.color.darker_gray).into(binding!!.ivProfile)
         binding?.tvNameProfile?.text = user.name
         binding?.tvEmailProfile?.text = user.email
+       // binding?.tvFakProfile?.text = user.
+       // binding?.tvProdiProfile?.text = user.prodi
+
     }
 
 
