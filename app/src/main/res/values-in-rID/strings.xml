@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">UmahaAttendaceApp</string>
+    <string name="hello_sign_in_your_account">Masukkan Akun Anda</string>
+    <string name="email">Email</string>
+    <string name="password">Sandi</string>
+    <string name="forgot_password">Lupa Sandi</string>
+    <string name="login">Masuk</string>
+    <string name="history">Riwayat</string>
+    <string name="attendance">Kehadiran</string>
+    <string name="profile">Profil</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="current_location">Lokasi Terkini</string>
+    <string name="default_text" translatable="false"/>
+    <string name="your_photo">Photo Anda</string>
+    <string name="check_in">Masuk</string>
+    <string name="google_maps_key" translatable="false">AIzaSyDZmPs4oNdbN7cZrmErZQ01tR6WoTBr1DQ</string>
+    <string name="check_out">Keluar</string>
+    <string name="change_password">Ubah Sandi</string>
+    <string name="change_language">Ubah Bahasa</string>
+    <string name="log_out">Keluar</string>
+    <string name="old_password">Sandi Lama</string>
+    <string name="new_password">Sandi Baru</string>
+    <string name="confirm_new_password">Konfirmasi Sandi</string>
+    <string name="please_field_your_email">Mohon isi Email Anda</string>
+    <string name="please_use_valid_email">Mohon isi Email dengan benar</string>
+    <string name="please_field_your_password">Mohon isi Sandi Anda</string>
+    <string name="failed">Gagal</string>
+    <string name="success">Berhasil</string>
+    <string name="required_permission">Membutuhkan Izin</string>
+    <string name="not_granted">Izin Tidak diberikan</string>
+    <string name="search_your_location">Lokasi Anda...</string>
+    <string name="failed_to_capture_image">Gagal Menangkap Photo anda</string>
+    <string name="are_you_sure">Anda Yakin?</string>
+    <string name="yes">Iya</string>
+    <string name="no">Tidak</string>
+    <string name="success_check_in">Berhasil Masuk</string>
+    <string name="success_check_out">Berhasil Keluar</string>
+    <string name="alert">Peringatan</string>
+    <string name="something_wrong">Ops! Ada Kesalahan</string>
+    <string name="please_take_your_photo">Masukkan Foto Anda</string>
+    <string name="your_already_present">Presensi sudah Selesai</string>
+    <string name="logout">Keluar</string>
+</resources>
