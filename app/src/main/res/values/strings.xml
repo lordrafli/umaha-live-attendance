@@ -31,4 +31,13 @@
     <string name="not_granted">Not Granted</string>
     <string name="search_your_location">Search your location</string>
     <string name="failed_to_capture_image">Failed to Capture Image</string>
+    <string name="are_you_sure">Are You Sure?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="success_check_in">Success Check In</string>
+    <string name="success_check_out">Success Check Out</string>
+    <string name="alert">Alert !!</string>
+    <string name="something_wrong">Ops! Somthing Wrong</string>
+    <string name="please_take_your_photo">Please Take Your Photo</string>
+    <string name="your_already_present">Your Already Present</string>
 </resources>
