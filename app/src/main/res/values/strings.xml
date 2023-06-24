@@ -40,4 +40,6 @@
     <string name="please_take_your_photo">Please Take Your Photo</string>
     <string name="your_already_present">Your Already Present</string>
     <string name="logout">Logout</string>
+    <string name="your_password_didnt_match">Your Password didnt match</string>
+    <string name="your_password_has_been_update">Your Password Has Been Update</string>
 </resources>

@@ -40,4 +40,6 @@
     <string name="please_take_your_photo">Masukkan Foto Anda</string>
     <string name="your_already_present">Presensi sudah Selesai</string>
     <string name="logout">Keluar</string>
+    <string name="your_password_didnt_match">Password Anda Tidak Cocok</string>
+    <string name="your_password_has_been_update">Password Anda telah diperbarui</string>
 </resources>
