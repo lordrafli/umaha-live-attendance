@@ -42,4 +42,5 @@
     <string name="logout">Logout</string>
     <string name="your_password_didnt_match">Your Password didnt match</string>
     <string name="your_password_has_been_update">Your Password Has Been Update</string>
+    <string name="your_location_is_out_of_range">Your Location is Out of Permision</string>
 </resources>

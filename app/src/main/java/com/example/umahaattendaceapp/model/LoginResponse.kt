@@ -25,6 +25,9 @@ data class User(
 	@field:SerializedName("is_admin")
 	val isAdmin: Int? = null,
 
+	@field:SerializedName("fakultas")
+	val fakultas: String? = null,
+
 	@field:SerializedName("updated_at")
 	val updatedAt: String? = null,
 
@@ -42,6 +45,9 @@ data class User(
 
 	@field:SerializedName("id")
 	val id: Int? = null,
+
+	@field:SerializedName("prodi")
+	val prodi: String? = null,
 
 	@field:SerializedName("email")
 	val email: String? = null
