@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -42,8 +43,10 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.CircleOptions
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.maps.android.SphericalUtil
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -76,6 +79,9 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
         Manifest.permission.READ_EXTERNAL_STORAGE,
         Manifest.permission.WRITE_EXTERNAL_STORAGE
     )
+    private val GEOFENCE_LAT = -7.349545304399485
+    private val GEOFENCE_LONG = 112.68895525231115
+    private val GEOFENCE_RADIUS = 50.00
 
     private var mapAttendance: SupportMapFragment? = null
     private var map: GoogleMap? = null
@@ -450,10 +456,14 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
 
     override fun onMapReady(p0: GoogleMap) {
         map = p0
+        map?.addCircle(CircleOptions()
+            .center(LatLng(GEOFENCE_LAT, GEOFENCE_LONG))
+            .radius(GEOFENCE_RADIUS)
+        )
         if (checkPermission()) {
-            val umaha = LatLng(-7.349545304399485, 112.68895525231115)
-            map?.moveCamera(CameraUpdateFactory.newLatLng(umaha))
-            map?.animateCamera(CameraUpdateFactory.zoomTo(20f))
+           val umaha = LatLng(GEOFENCE_LAT, GEOFENCE_LONG)
+           map?.moveCamera(CameraUpdateFactory.newLatLng(umaha))
+           map?.animateCamera(CameraUpdateFactory.zoomTo(20f))
             goToCurrentLocation()
         } else {
             setRequestPermission()
@@ -480,11 +490,13 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
                         if (currentLocation != null) {
                             val latitude = currentLocation?.latitude
                             val longitude = currentLocation?.longitude
+                            checkGeofence(GEOFENCE_LAT,GEOFENCE_LONG,GEOFENCE_RADIUS)
 
                             if (latitude != null && longitude != null) {
                                 val latLng = LatLng(latitude, longitude)
                                 map?.moveCamera(CameraUpdateFactory.newLatLng(latLng))
                                 map?.animateCamera(CameraUpdateFactory.zoomTo(20F))
+
 
                                 val address = getAddress(latitude, longitude)
                                 if (address != null && address.isNotEmpty()) {
@@ -504,6 +516,16 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
             }
         } else {
             setRequestPermission()
+        }
+    }
+    private fun checkGeofence (geofenceLat: Double, geofenceLong: Double, radius: Double) {
+        val startLatLng =
+            currentLocation?.let { LatLng(currentLocation!!.latitude, it.longitude) } // User Location
+        val geofenceLatLng = LatLng(geofenceLat, geofenceLong) // Center of geofence
+        val distanceInMeters = SphericalUtil.computeDistanceBetween(startLatLng, geofenceLatLng)
+        if (distanceInMeters > radius) {
+           MyDialog.dynamicDialog(context,getString(R.string.alert) , getString(R.string.your_location_is_out_of_range) )
+            bindingBottomSheet?.btnCheckIn?.isEnabled = false
         }
     }
 
