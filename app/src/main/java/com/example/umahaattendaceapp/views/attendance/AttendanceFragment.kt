@@ -200,6 +200,7 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
         if (currentLocation != null && currentPhotoPath.isNotEmpty()){
             val latitude = currentLocation?.latitude.toString()
             val longitude = currentLocation?.longitude.toString()
+            val matkul = bindingBottomSheet?.spMatkul?.selectedItem.toString()
             val address = bindingBottomSheet?.tvCurrentLocation?.text.toString()
 
             val file = File(currentPhotoPath)
@@ -215,11 +216,13 @@ class AttendanceFragment : Fragment(), OnMapReadyCallback {
 
             val requestLatitude = latitude.toRequestBody(mediaTypeText)
             val requestLongitude = longitude.toRequestBody(mediaTypeText)
+            val requestMatkul = matkul.toRequestBody(mediaTypeText)
             val requestAddress = address.toRequestBody(mediaTypeText)
             val requestType = type.toRequestBody(mediaTypeText)
 
             params["lat"] = requestLatitude
             params["long"] = requestLongitude
+            params["matkul"] = requestMatkul
             params["address"] = requestAddress
             params["type"] = requestType
 
